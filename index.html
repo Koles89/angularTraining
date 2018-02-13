@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myapp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,51 @@
     <title>Angular</title>
 </head>
 <body>
+    <h3>13th Feb, 2018</h3>
+<div></div>
+
+<div ng-controller="Myctrl">
+    <student-Details my-list='students' my-title="{{name}}"></student-Details>
+    {{myval}}
+    {{1+1}}
+
+    <table>
+        <thead>
+            <tr>
+               <th>name</th>
+               <th>age</th>
+               <th>seniority</th>
+               <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="stu in students">
+            <td>{{stu.name | customName}}</td>
+            <td>{{stu.age }}</td>
+            <td>
+                <button ng-click="onViewBtnClick(stu)">
+                    view details
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <student-details></student-details>
+    <div id="selectedStudent">
+        <h2>Student details</h2>
+        <p>name: {{selectedStudent.name}}</p>
+        <p>age: {{selectedStudent.age}}</p>
+    </div>
+
+    <input type="text" ng-model="myval">
+    <button ng-click="onclick()">click me</button>
+</div>
+
+<div ng-if="myval.length === 0">my test is empty</div>
+
     <script src="angular.js"></script>
     <script src="app.js"></script>
+    <script src="appService.js"></script>
 </body>
 </html>
